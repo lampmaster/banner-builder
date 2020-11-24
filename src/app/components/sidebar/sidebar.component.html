@@ -1,0 +1,63 @@
+<div class="sidebar">
+  <div
+    class="sidebar__inputs"
+    [formGroup]="formModel"
+  >
+    <mat-form-field class="w100" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Best banner ever"
+        formControlName="title"
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w100" appearance="outline">
+      <mat-label>Image link</mat-label>
+      <input
+        matInput
+        formControlName="imageLink"
+        type="text"
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w100" appearance="outline">
+      <mat-label>Banner link</mat-label>
+      <input
+        matInput
+        formControlName="bannerLink"
+        type="text"
+      >
+    </mat-form-field>
+
+    <input
+      class="sidebar__color-picker"
+      [(colorPicker)]="bannerDataService.bannerData.value.backgroundColor"
+      [style.background]="bannerDataService.bannerData.value.backgroundColor"
+      (cpSliderDragEnd)="colorChange($event)"
+    />
+  </div>
+
+  <div class="sidebar__export">
+
+    <button
+      mat-flat-button
+      class="w100"
+      color="primary"
+      (click)="savePNG()"
+    >PNG</button>
+
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="copyJSON()"
+    >JSON</button>
+
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="copyHTML()"
+    >HTML</button>
+  </div>
+</div>

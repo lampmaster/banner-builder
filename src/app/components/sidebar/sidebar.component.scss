@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  justify-content: space-between;
+
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);;
+  background: #ffffff;
+
+  &__color-picker {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__export {
+    display: flex;
+    flex-direction: column;
+
+    :nth-child(1n):not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.w100 {
+  width: 100%;
+}
