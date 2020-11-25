@@ -9,6 +9,4 @@ import {BannerInterface} from '../interfaces/banner.interface';
 export class BannerDataService {
   public bannerData: BehaviorSubject<BannerInterface> = new BehaviorSubject(InitialBannerConfig);
   public bannerHTMLData: BehaviorSubject<HTMLElement> = new BehaviorSubject(null);
-  public titleNumberOfLines: BehaviorSubject<number> = new BehaviorSubject(null);
-
 }

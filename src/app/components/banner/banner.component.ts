@@ -9,7 +9,6 @@ import {BannerInterface} from '../../entities/interfaces/banner.interface';
 })
 export class BannerComponent implements AfterViewInit {
   @ViewChild('banner') banner: ElementRef;
-  @ViewChild('title') title: ElementRef;
 
   constructor(
     public bannerDataService: BannerDataService,
@@ -29,13 +28,13 @@ export class BannerComponent implements AfterViewInit {
 
   private _bannerDataHandler(): void {
     this.bannerDataService.bannerData.subscribe((_: BannerInterface) => {
-      this._getHtml();
+      const html = this._getHtml();
+      this.bannerDataService.bannerHTMLData.next(html);
     });
   }
 
-  private _getHtml(): void {
-    const html: HTMLElement = this.banner.nativeElement;
-    this.bannerDataService.bannerHTMLData.next(html);
+  private _getHtml(): HTMLElement {
+    return this.banner.nativeElement;
   }
 
   changeUrl(): void {
