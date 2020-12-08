@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BannerDataService} from '../../entities/services/banner-data.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BannerInterface} from '../../entities/interfaces/banner.interface';
-import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
 import {saveAs} from '../../entities/utils/utils';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -66,9 +66,9 @@ export class SidebarComponent implements OnInit {
   }
 
   public savePNG(): void {
-    html2canvas(this.bannerDataService.bannerHTMLData.value, {allowTaint: true, useCORS: true}).then(canvas => {
-      saveAs(canvas.toDataURL(), 'banner.png');
-    });
+    domtoimage.toPng(this.bannerDataService.bannerHTMLData.value).then((dataUrl) => {
+        saveAs(dataUrl, 'banner.png');
+      });
   }
 
   private _callMessageBar(messageText: string): void {
