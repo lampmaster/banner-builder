@@ -1,6 +1,7 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
 import {BannerDataService} from '../../entities/services/banner-data.service';
 import {BannerInterface} from '../../entities/interfaces/banner.interface';
+import * as styles from '../../entities/variables/styles';
 
 @Component({
   selector: 'app-banner',
@@ -14,6 +15,12 @@ export class BannerComponent implements AfterViewInit {
     public bannerDataService: BannerDataService,
     private _cdr: ChangeDetectorRef
   ) { }
+
+  public BANNER = styles.BANNER;
+  public BANNER_IMG = styles.BANNER_IMG;
+  public IMG = styles.IMG;
+  public TITLE = styles.TITLE;
+  public PARAGRAPH = styles.PARAGRAPH;
 
   ngAfterViewInit(): void {
     this._bannerDataHandler();

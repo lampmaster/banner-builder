@@ -1,14 +1,17 @@
-<div #banner class="banner" [style.background]="(bannerDataService.bannerData | async).backgroundColor" (click)="goToPage()">
-  <div class="banner__img">
+<div #banner [ngStyle]="BANNER" [style.background]="(bannerDataService.bannerData | async).backgroundColor" (click)="goToPage()">
+  <div [ngStyle]="BANNER_IMG">
     <img
+      [ngStyle]="IMG"
       *ngIf="(bannerDataService.bannerData | async).imageLink !== ''"
       [src]="(bannerDataService.bannerData | async)?.imageLink"
       (error)="changeUrl()"
       alt="img"
     >
   </div>
-  <div class="banner__title">
-    <p>{{(bannerDataService.bannerData | async)?.title || ''}}</p>
+  <div [ngStyle]="TITLE">
+    <p [ngStyle]="PARAGRAPH">{{(bannerDataService.bannerData | async)?.title || ''}}</p>
   </div>
 </div>
+
+
 
