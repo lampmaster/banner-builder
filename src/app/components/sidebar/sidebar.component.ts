@@ -60,7 +60,7 @@ export class SidebarComponent implements OnInit {
 
   public copyHTML(): void {
     const html = this._makeHTMLClickable();
-    navigator.clipboard.writeText(html.outerHTML).then(_ => {
+    navigator.clipboard.writeText(html.outerHTML.replace(/<!--[\s\S]*?-->/g, '')).then(_ => {
       this._callMessageBar('HTML copied');
     });
   }
@@ -80,6 +80,7 @@ export class SidebarComponent implements OnInit {
     const link = document.createElement('a');
     link.href = this.bannerDataService.bannerData.value.bannerLink;
     link.appendChild(html);
+    link.style.textDecoration = 'none';
     return link;
   }
 }

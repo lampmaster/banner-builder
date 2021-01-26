@@ -24,7 +24,6 @@
     "@angular/router": "~11.0.0",
     "classlist.js": "^1.1.20150312",
     "dom-to-image": "^2.6.0",
-    "html2canvas": "^1.0.0-rc.7",
     "material-icons": "^0.3.1",
     "ngx-color-picker": "^10.1.0",
     "rxjs": "~6.6.0",
