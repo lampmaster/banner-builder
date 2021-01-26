@@ -2,6 +2,7 @@ import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild} from
 import {BannerDataService} from '../../entities/services/banner-data.service';
 import {BannerInterface} from '../../entities/interfaces/banner.interface';
 import * as styles from '../../entities/variables/styles';
+import {getAndEncode} from '../../entities/utils/utils';
 
 @Component({
   selector: 'app-banner',
@@ -26,16 +27,18 @@ export class BannerComponent implements AfterViewInit {
     this._bannerDataHandler();
   }
 
-  public goToPage(): void {
-    const bannerLink = this.bannerDataService.bannerData.value.bannerLink;
-    if (bannerLink) {
-      window.open(bannerLink);
-    }
-  }
+  // public goToPage(): void {
+  //   const bannerLink = this.bannerDataService.bannerData.value.bannerLink;
+  //   if (bannerLink) {
+  //     window.open(bannerLink);
+  //   }
+  // }
 
   private _bannerDataHandler(): void {
-    this.bannerDataService.bannerData.subscribe((_: BannerInterface) => {
+    this.bannerDataService.bannerData.subscribe((bannerData: BannerInterface) => {
+      console.log(getAndEncode(bannerData.imageLink));
       const html = this._getHtml();
+      html.style.backgroundImage = `url(${getAndEncode(bannerData.imageLink)})`;
       this.bannerDataService.bannerHTMLData.next(html);
     });
   }

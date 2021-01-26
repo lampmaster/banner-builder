@@ -1,13 +1,22 @@
-<div #banner [ngStyle]="BANNER" [style.background]="(bannerDataService.bannerData | async).backgroundColor" (click)="goToPage()">
-  <div [ngStyle]="BANNER_IMG">
-    <img
-      [ngStyle]="IMG"
-      *ngIf="(bannerDataService.bannerData | async).imageLink !== ''"
-      [src]="(bannerDataService.bannerData | async)?.imageLink"
-      (error)="changeUrl()"
-      alt="img"
-    >
-  </div>
+<div #banner [ngStyle]="BANNER" [style.background]="(bannerDataService.bannerData | async).backgroundColor">
+<!--  <div [ngStyle]="BANNER_IMG">-->
+<!--    <img-->
+<!--      [ngStyle]="IMG"-->
+<!--      *ngIf="(bannerDataService.bannerData | async).imageLink !== ''"-->
+<!--      [src]="(bannerDataService.bannerData | async)?.imageLink"-->
+<!--      (error)="changeUrl()"-->
+<!--      (click)="changePosition($event)"-->
+<!--      alt="img"-->
+<!--    >-->
+<!--  </div>-->
+<!--  <img-->
+<!--    [ngStyle]="IMG"-->
+<!--    *ngIf="(bannerDataService.bannerData | async).imageLink !== ''"-->
+<!--    [src]="(bannerDataService.bannerData | async)?.imageLink"-->
+<!--    (error)="changeUrl()"-->
+<!--    alt="img"-->
+<!--  >-->
+
   <div [ngStyle]="TITLE">
     <p [ngStyle]="PARAGRAPH">{{(bannerDataService.bannerData | async)?.title || ''}}</p>
   </div>

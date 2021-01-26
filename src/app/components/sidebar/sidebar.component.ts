@@ -68,7 +68,7 @@ export class SidebarComponent implements OnInit {
   public savePNG(): void {
     domtoimage.toPng(this.bannerDataService.bannerHTMLData.value).then((dataUrl) => {
         saveAs(dataUrl, 'banner.png');
-      });
+    });
   }
 
   private _callMessageBar(messageText: string): void {
