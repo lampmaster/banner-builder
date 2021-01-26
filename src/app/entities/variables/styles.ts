@@ -1,4 +1,3 @@
-
 export const BANNER = {
   height: '530px',
   width: '300px',
@@ -11,25 +10,6 @@ export const BANNER = {
   'background-position-x': 'center',
   'background-position-y': 'center',
   'background-repeat': 'no-repeat'
-};
-
-export const BANNER_IMG = {
-  position: 'relative',
-  top: '100px',
-  display: 'flex',
-  height: '100%',
-  alignItems: 'center',
-};
-
-export const IMG = {
-  position: 'relative',
-  height: '100%',
-  marginTop: 0,
-  marginBottom: 0,
-  marginRight: 'auto',
-  marginLeft: 'auto',
-  maxHeight: '100%',
-  maxWidth: '100%',
 };
 
 export const TITLE = {
