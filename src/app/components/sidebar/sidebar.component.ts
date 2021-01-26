@@ -68,7 +68,7 @@ export class SidebarComponent implements OnInit {
   public savePNG(): void {
     domtoimage.toPng(this.bannerDataService.bannerHTMLData.value).then((dataUrl) => {
         saveAs(dataUrl, 'banner.png');
-      });
+    });
   }
 
   private _callMessageBar(messageText: string): void {
@@ -79,8 +79,8 @@ export class SidebarComponent implements OnInit {
     const html = this.bannerDataService.bannerHTMLData.value.cloneNode(true);
     const link = document.createElement('a');
     link.href = this.bannerDataService.bannerData.value.bannerLink;
-    link.appendChild(html);
     link.style.textDecoration = 'none';
+    link.appendChild(html);
     return link;
   }
 }
